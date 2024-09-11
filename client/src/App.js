@@ -17,7 +17,6 @@ import Update_listing from './Components/Update_listing';
 import Listing from './Components/Listing';
 import Search from './Components/Search';
 import Footer from './Components/Footer';
-import {ChatBot} from '@aqib_nawab/chatbot-react';
 
 
 function App() {
@@ -44,7 +43,6 @@ function App() {
       </div>
       <Footer />
     </BrowserRouter>
-    <ChatBot token="YOUR_TOKEN" />
     </>
   );
 }
