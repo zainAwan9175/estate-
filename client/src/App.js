@@ -17,10 +17,13 @@ import Update_listing from './Components/Update_listing';
 import Listing from './Components/Listing';
 import Search from './Components/Search';
 import Footer from './Components/Footer';
+import {ChatBot} from '@aqib_nawab/chatbot-react';
+
 
 function App() {
   const dispatch = useDispatch();
   return (
+    <>
     <BrowserRouter>
       <Navbar />
       <div style={{ marginTop: '9vh' }}> {/* Add this div to create space for the navbar */}
@@ -41,6 +44,8 @@ function App() {
       </div>
       <Footer />
     </BrowserRouter>
+    <ChatBot token="YOUR_TOKEN" />
+    </>
   );
 }
 
