@@ -61,7 +61,7 @@ function Profile() {
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           axios
-            .post("http://localhost:3001/auth/updatepic", { userid, downloadURL })
+            .post("https://estate-api-orcin.vercel.app/auth/updatepic", { userid, downloadURL })
             .then((res) => {
               dispatch(updatecurrentuser(res.data.updateuser));
               setfile(undefined);
@@ -84,7 +84,7 @@ function Profile() {
     } else {
       setp_lmsg("");
       axios
-        .post("http://localhost:3001/auth/updateprofile", {
+        .post("https://estate-api-orcin.vercel.app/auth/updateprofile", {
           username,
           email,
           password,
@@ -107,7 +107,7 @@ function Profile() {
 
   function deleteaccount() {
     axios
-      .post("http://localhost:3001/auth/deleteaccount", { userid })
+      .post("https://estate-api-orcin.vercel.app/auth/deleteaccount", { userid })
       .then((res) => {
         if (res.data.delete) {
           dispatch(updatecurrentuser({}));
@@ -126,7 +126,7 @@ function Profile() {
 
   function SignOut() {
     axios
-      .post("http://localhost:3001/auth/signout")
+      .post("https://estate-api-orcin.vercel.app/auth/signout")
       .then((res) => {
         if (res.data.signout) {
           dispatch(updatecurrentuser({}));

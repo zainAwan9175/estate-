@@ -53,7 +53,7 @@ function Search() {
       setshowmore(true);
       try {
         const response = await axios.get(
-          `http://localhost:3001/listining/search?${urlParams.toString()}`
+          `https://estate-api-orcin.vercel.app/listining/search?${urlParams.toString()}`
         );
   
         if (response.data.found) {
@@ -166,7 +166,7 @@ function Search() {
 
         try {
             const response = await axios.get(
-                `http://localhost:3001/listining/search?${searchquery}`
+                `https://estate-api-orcin.vercel.app/listining/search?${searchquery}`
             );
 
             if (response.data.found && response.data.listings) {

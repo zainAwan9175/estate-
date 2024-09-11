@@ -17,7 +17,7 @@ import mongdbconnection from "./mongodb-connection.js";
 mongdbconnection();
 
 app.use(cors({
-    origin:["http://localhost:3000"],
+    origin:["https://estate-liard.vercel.app"],
     credentials:true,
 }));
 

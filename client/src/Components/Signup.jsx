@@ -44,7 +44,7 @@ dispach(updateactive("signup"))
     else{
   
       setp_lmsg("")
-      axios.post("http://localhost:3001/auth/signup",{username,email,password})
+      axios.post("https://estate-api-orcin.vercel.app/auth/signup",{username,email,password})
       .then((res)=>{
 
        if(res.data.register)

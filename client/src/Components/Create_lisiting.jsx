@@ -157,7 +157,7 @@ function Create_lisiting() {
     
 
     axios
-      .post("http://localhost:3001/listining/create", formdata)
+      .post("https://estate-api-orcin.vercel.app/listining/create", formdata)
       .then((res) => {
         if (res.data.creation) {
           console.log("helo")

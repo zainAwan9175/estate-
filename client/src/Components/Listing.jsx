@@ -44,7 +44,7 @@ function Listing() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:3001/listining/get/${id}`)
+      .get(`https://estate-api-orcin.vercel.app/listining/get/${id}`)
       .then((res) => {
         if (res.data.findlisting) {
     
