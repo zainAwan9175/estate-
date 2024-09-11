@@ -1,0 +1,5 @@
+/* Add this to your global stylesheet */
+.backdrop-blur-custom {
+    backdrop-filter: blur(5px); /* Adjust the blur amount as needed */
+  }
+  
