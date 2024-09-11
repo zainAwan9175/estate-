@@ -185,7 +185,7 @@ function Navbar() {
             </Link>
           </li>
           <li>
-            {Object.keys(currentuser).length !== 0 ? (
+            {currentuser ? (
               <Link to="/profile">
                 <img
                   src={currentuser.photo}
