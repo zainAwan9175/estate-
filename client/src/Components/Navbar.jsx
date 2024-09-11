@@ -185,26 +185,27 @@ function Navbar() {
             </Link>
           </li>
           <li>
-            {currentuser.length!== 0 ? (
-              <Link to="/profile">
-                <img
-                  src={currentuser.photo}
-                  className="border rounded-full w-[35px] h-[35px]"
-                  alt="Profile"
-                />
-              </Link>
-            ) : (
-              <Link to="/signin">
-                <span
-                  className={`block p-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 ${
-                    active === "signin" ? "text-blue-600 font-bold" : "text-gray-500"
-                  }`}
-                >
-                  Sign In
-                </span>
-              </Link>
-            )}
-          </li>
+  {currentuser && currentuser.photo ? (
+    <Link to="/profile">
+      <img
+        src={currentuser.photo}
+        className="border rounded-full w-[35px] h-[35px]"
+        alt="Profile"
+      />
+    </Link>
+  ) : (
+    <Link to="/signin">
+      <span
+        className={`block p-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 ${
+          active === "signin" ? "text-blue-600 font-bold" : "text-gray-500"
+        }`}
+      >
+        Sign In
+      </span>
+    </Link>
+  )}
+</li>
+
         </ul>
       </div>
     </div>
