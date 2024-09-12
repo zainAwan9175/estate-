@@ -54,7 +54,7 @@ dispach(updateactive("signup"))
             navigate("/")
        }
        else{
-        setmsg("e mail or password already register");
+        setmsg("e mail or username already register");
        }
       })
       .catch((err)=>{
