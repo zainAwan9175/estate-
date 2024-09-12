@@ -31,7 +31,7 @@ bcrypt.genSalt(10, function(err, salt) {
     res.cookie("token",token,{httpOnly:true});
     const user=await usermodel.findOne({email}).select("-password")
 
-    res.json({register:true,newuser:user});
+    res.json({register:true,newuser:user,token:token});
    }
    catch(err)
    {
