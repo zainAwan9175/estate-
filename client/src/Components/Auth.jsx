@@ -4,38 +4,28 @@ import { app } from '../firebase';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { updatecurrentuser,updateactive } from '../redux/userredux';
+import { updatecurrentuser, updateactive } from '../redux/userredux';
 
 function Auth() {
-    const navigate=useNavigate();
-    const dispach=useDispatch();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     axios.defaults.withCredentials = true;
+
     async function handleGoogleSubmission() {
         try {
             const provider = new GoogleAuthProvider();
             const auth = getAuth(app);
             const result = await signInWithPopup(auth, provider);
-    axios.post("https://estate-api-orcin.vercel.app/auth/google",{name:result.user.displayName,email:result.user.email,photo:result.user.photoURL},{withCredentials:true})
-  .then((res)=>{
-if(res.data.register)
-{
-    console.log(res.data)
-    dispach(updatecurrentuser(res.data.newuser))
-    navigate("/")
-
-  
-}
-else if(res.data.login)
-{
-    console.log(res.data)
-    dispach(updatecurrentuser(res.data.newuser))
-    navigate("/")
-}
-     
-  })
-  .catch((err)=>{
-   
-  })
+            axios.post("https://estate-api-orcin.vercel.app/auth/google", { name: result.user.displayName, email: result.user.email, photo: result.user.photoURL }, { withCredentials: true })
+                .then((res) => {
+                    if (res.data.register || res.data.login) {
+                        dispatch(updatecurrentuser(res.data.newuser));
+                        navigate("/");
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
         } catch (err) {
             console.log("Failed to continue with Google", err);
         }

@@ -1,17 +1,16 @@
-import express from "express"
-import dotenv from "dotenv"
-import uesrRoute from "./Route/userRoute.js"
-import authRoute from "./Route/authRoute.js"
-import { listiningRoute } from "./Route/LisitiningRout.js"
+import express from "express";
+import dotenv from "dotenv";
+import uesrRoute from "./Route/userRoute.js";
+import authRoute from "./Route/authRoute.js";
+import { listiningRoute } from "./Route/LisitiningRout.js";
 import cookieParser from "cookie-parser";
-import cors from "cors"
+import cors from "cors";
+
 dotenv.config();
-const app=express();
+const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
-
-
 
 import mongdbconnection from "./mongodb-connection.js";
 mongdbconnection();
@@ -22,13 +21,14 @@ app.use(cors({
     methods: ["GET", "POST", "PUT", "DELETE"]
 }));
 
-app.get("/",(req,res)=>{
-    res.send("Server is running ")
-})
+app.get("/", (req, res) => {
+    res.send("Server is running ");
+});
 
-app.use("/user",uesrRoute);
-app.use("/auth",authRoute);
-app.use("/listining",listiningRoute);
-app.listen(3001,()=>{
-    console.log("server is running on the port 3001")
-})
+app.use("/user", uesrRoute);
+app.use("/auth", authRoute);
+app.use("/listining", listiningRoute);
+
+app.listen(3001, () => {
+    console.log("server is running on the port 3001");
+});
