@@ -27,7 +27,7 @@ bcrypt.genSalt(10, function(err, salt) {
         password:hash,
     })
 
-    var token = jwt.sign({id:newuser._id},bvhfugtg5uoyiufvgfjrebhdvfnfjnfhfjhfjergitukfgu8);
+    var token = jwt.sign({id:newuser._id},process.env.USER_KEY);
     res.cookie("token",token,{httpOnly:true});
     const user=await usermodel.findOne({email}).select("-password")
 
@@ -56,7 +56,7 @@ export const signin = async (req, res) => {
 
         const isPasswordValid = await bcrypt.compare(password, user_on_username.password);
         if (isPasswordValid) {
-            const token = jwt.sign({ id:user_on_username._id }, bvhfugtg5uoyiufvgfjrebhdvfnfjnfhfjhfjergitukfgu8);
+            const token = jwt.sign({ id:user_on_username._id }, process.env.USER_KEY);
             res.cookie("token", token,{httpOnly:true});
             const user=await  usermodel.findOne({email}).select("-password")
             return res.json({ signin: true ,newuser:user});
@@ -111,7 +111,7 @@ export const updateprofile = async (req, res) => {
           );
   
           if (updateuser) {
-            var token = jwt.sign({ id: updateuser._id }, bvhfugtg5uoyiufvgfjrebhdvfnfjnfhfjhfjergitukfgu8);
+            var token = jwt.sign({ id: updateuser._id }, process.env.USER_KEY);
             res.cookie("token", token, { httpOnly: true });
   
             const user = await usermodel.findById(updateuser._id).select("-password");
@@ -135,7 +135,7 @@ export const googl=async (req,res)=>{
     const user=await usermodel.findOne({email}).select("-password")
     if(user)
     {
-        const token = jwt.sign({ id:user._id }, bvhfugtg5uoyiufvgfjrebhdvfnfjnfhfjhfjergitukfgu8);
+        const token = jwt.sign({ id:user._id }, process.env.USER_KEY);
         res.cookie("token", token,{httpOnly:true}).json({login:true,newuser:user});
     }
     else{
@@ -156,7 +156,7 @@ const username = name.split(" ").join("").toLowerCase() + Math.random().toString
                 photo,
             })
         
-            var token = jwt.sign({id:newuser._id},bvhfugtg5uoyiufvgfjrebhdvfnfjnfhfjhfjergitukfgu8);
+            var token = jwt.sign({id:newuser._id},process.env.USER_KEY);
             res.cookie("token",token,{httpOnly:true});
             const user=await usermodel.findOne({email}).select("-password")
         

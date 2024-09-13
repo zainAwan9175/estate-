@@ -13,7 +13,7 @@ const userlogin = async (req, res, next) => {
     }
 
     try {
-        const decoded = jwt.verify(token, bvhfugtg5uoyiufvgfjrebhdvfnfjnfhfjhfjergitukfgu8);
+        const decoded = jwt.verify(token, process.env.USER_KEY);
         const user = await usermodel.findOne({ _id: decoded.id });
 
         if (!user) {
