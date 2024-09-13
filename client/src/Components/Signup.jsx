@@ -35,6 +35,8 @@ function Signup() {
           if (res.data.register) {
             dispatch(updatecurrentuser(res.data.newuser));
             setmsg("account created successfully");
+            console.log("hi")
+            console.log(res.data.register)
             navigate("/");
           } else {
             setmsg("email or username already registered");

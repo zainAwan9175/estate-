@@ -27,7 +27,7 @@ export const signup = async (req, res) => {
         res.cookie("token", token, { httpOnly: true });
         
         const user = await usermodel.findOne({ email }).select("-password");
-        res.json({ register: true, newuser: user });
+        res.json({ register: true, newuser: user, kok:token});
 
     } catch (err) {
         console.error(err);
