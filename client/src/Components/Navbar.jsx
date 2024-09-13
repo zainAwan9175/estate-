@@ -152,7 +152,7 @@ function Navbar() {
         ref={menuRef}
         className={`text-[17px] z-10 mt-[32vh] w-[350px]  md:mt-[0vh] absolute md:static md:flex md:w-auto transition-transform duration-300 ${
           isMenuOpen
-            ? "left-1/2 transform -translate-x-1/2 items-center w-full "
+            ? "left-1/2 transform translate-x-0 items-center w-full "
             : "-translate-x-[210%] md:translate-x-0"
         }`}
         id="navbar-menu"
