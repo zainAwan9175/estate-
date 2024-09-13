@@ -200,6 +200,6 @@ export const getuser = async (req, res) => {
         res.json({ listingowner: true, listingowner: user });
     } catch (err) {
         console.error(err);
-        res.json({ error: err.message });
+        res.json({ error: err.message })
     }
 };
