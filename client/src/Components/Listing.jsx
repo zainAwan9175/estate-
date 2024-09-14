@@ -14,7 +14,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./listingslider.css";
-
 function Listing() {
   useEffect(() => {
     window.scrollTo(0, 0);

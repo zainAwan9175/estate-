@@ -72,14 +72,11 @@ export const deletelisting = async (req, res) => {
 
 export const getsinglelisting = async (req, res) => {
     try {
-        
-       
         const listing = await lisitingmodel.findOne({ _id: req.params.id });
+
         if (listing) {
-        
             return res.json({ findlisting: true, listing: listing });
         } else {
-       
             return res.json({ findlisting: false, message: "No listing found" });
         }
     } catch (err) {
@@ -87,6 +84,7 @@ export const getsinglelisting = async (req, res) => {
         return res.status(500).json({ error: "Internal server error" });
     }
 };
+
 
 export const search = async (req, res) => {
     try {
