@@ -73,13 +73,13 @@ export const deletelisting = async (req, res) => {
 export const getsinglelisting = async (req, res) => {
     try {
         
-        console.log("Request ID:", req.params.id); // Debugging ID
+       
         const listing = await lisitingmodel.findOne({ _id: req.params.id });
         if (listing) {
-            console.log("milgia")
+        
             return res.json({ findlisting: true, listing: listing });
         } else {
-            console.log("nhi mila")
+       
             return res.json({ findlisting: false, message: "No listing found" });
         }
     } catch (err) {
