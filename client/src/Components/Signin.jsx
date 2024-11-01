@@ -38,7 +38,10 @@ function Signin() {
         setmsg("something went wrong");
       });
   }
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  
+  }, []);
   return (
     <div 
       className='h-[91vh] flex justify-center items-center bg-cover bg-center z-0' 

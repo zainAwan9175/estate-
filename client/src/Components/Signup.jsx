@@ -15,7 +15,10 @@ function Signup() {
   useEffect(() => {
     dispatch(updateactive("signup"));
   }, [dispatch]);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  
+  }, []);
   const [username, setusername] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
@@ -30,7 +33,7 @@ function Signup() {
       setp_lmsg("password at least 8 characters");
     } else {
       setp_lmsg("");
-      axios.post("https://estate-api-orcin.vercel.app/auth/signup", { username, email, password }, { withCredentials: true })
+      axios.post("http://estate-liard.vercel.app/auth/signup", { username, email, password }, { withCredentials: true })
         .then((res) => {
           if (res.data.register) {
             dispatch(updatecurrentuser(res.data.newuser));

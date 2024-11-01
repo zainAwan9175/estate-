@@ -9,7 +9,7 @@ function ProtectedRoute() {
     Object.keys(currentuser).length !== 0 ? (
       <Outlet />
     ) : (
-      <Navigate to="/signin" />
+      <Navigate to="/Signup" />
     )
   );
 }

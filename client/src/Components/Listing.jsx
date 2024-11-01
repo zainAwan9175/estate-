@@ -1,33 +1,23 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
 import SwiperCore from "swiper";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import ContactLandlower from "./ContactLandlower";
 import { updateactive } from '../redux/userredux';
-import { useDispatch } from "react-redux";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./listingslider.css";
-function Listing() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
+function Listing() {
   const [copied, setCopied] = useState(false);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(updateactive(""));
-  }, [dispatch]);
-
-  SwiperCore.use([Navigation, Pagination]); // Include Pagination here
-  const { currentuser } = useSelector(state => state.user); // Get the current user state
+  const { currentuser } = useSelector(state => state.user);
   const { id } = useParams();
 
   const [loading, setLoading] = useState(true);
@@ -36,9 +26,14 @@ function Listing() {
   const [textareacondition, setTextareacondition] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+    dispatch(updateactive(""));
+  }, [dispatch]);
+
+  useEffect(() => {
     setLoading(true);
     axios
-      .get(`https://estate-api-orcin.vercel.app/listining/get/${id}`)
+      .get(`http://estate-liard.vercel.app/listining/get/${id}`)
       .then((res) => {
         if (res.data.findlisting) {
           setLoading(false);
@@ -53,6 +48,7 @@ function Listing() {
         setListingErr("Something went wrong");
       });
   }, [id]);
+
 
   return (
     <div className="relative">
