@@ -16,7 +16,7 @@ function Auth() {
             const provider = new GoogleAuthProvider();
             const auth = getAuth(app);
             const result = await signInWithPopup(auth, provider);
-            axios.post("https://estate-api-orcin.vercel.app/auth/google", { name: result.user.displayName, email: result.user.email, photo: result.user.photoURL }, { withCredentials: true })
+            axios.post("http://estate-liard.vercel.app/auth/google", { name: result.user.displayName, email: result.user.email, photo: result.user.photoURL }, { withCredentials: true })
                 .then((res) => {
                     if (res.data.register || res.data.login) {
                         dispatch(updatecurrentuser(res.data.newuser));
