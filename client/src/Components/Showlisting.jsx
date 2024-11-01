@@ -9,7 +9,7 @@ function Showlisting() {
 
     useEffect(() => {
         if (currentuser && currentuser._id) {
-            axios.get(`https://estate-liard.vercel.app/listining/getlisiting/${currentuser._id}`)
+            axios.get(`https://estate-api-orcin.vercel.app/listining/getlisiting/${currentuser._id}`)
                 .then((res) => {
                     setListings(res.data.data || []); // Ensure that the data is an array
                 })
@@ -24,10 +24,10 @@ function Showlisting() {
     }
 
     function deleteListing(id) {
-        axios.post(`https://estate-liard.vercel.app/listining/delete/${id}`)
+        axios.post(`https://estate-api-orcin.vercel.app/listining/delete/${id}`)
             .then((res) => {
                 if (res.data.delete) {
-                    axios.get(`https://estate-liard.vercel.app/listining/getlisiting/${currentuser._id}`)
+                    axios.get(`https://estate-api-orcin.vercel.app/listining/getlisiting/${currentuser._id}`)
                         .then((res) => {
                             setListings(res.data.data || []); // Ensure that the data is an array
                         })
