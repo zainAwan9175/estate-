@@ -16,7 +16,7 @@ import mongdbconnection from "./mongodb-connection.js";
 mongdbconnection();
 
 app.use(cors({
-    origin: ["http://localhost:3000","estate-client-iota.vercel.app"],
+    origin: ["https://estate-client-iota.vercel.app"],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"]
 }));

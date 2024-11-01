@@ -24,7 +24,7 @@ function Home() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get(`http://estate-liard.vercel.app/listining/search?offer=true&limit=4`);
+        const response = await axios.get(`https://estate-liard.vercel.app/listining/search?offer=true&limit=4`);
 
         if (response.data.found) {
           setOffer(response.data.listings);
@@ -35,7 +35,7 @@ function Home() {
       }
 
       try {
-        const response = await axios.get(`http://estate-liard.vercel.app/listining/search?type=sale&limit=4`);
+        const response = await axios.get(`https://estate-liard.vercel.app/listining/search?type=sale&limit=4`);
 
         if (response.data.found) {
           setSell(response.data.listings);
@@ -47,7 +47,7 @@ function Home() {
       }
 
       try {
-        const response = await axios.get(`http://estate-liard.vercel.app/listining/search?type=rent&limit=4`);
+        const response = await axios.get(`https://estate-liard.vercel.app/listining/search?type=rent&limit=4`);
 
         if (response.data.found) {
           setRent(response.data.listings);

@@ -42,7 +42,7 @@ function Update_listing() {
 
 
     axios
-    .get(`http://estate-liard.vercel.app/listining/get/${id}`)
+    .get(`https://estate-liard.vercel.app/listining/get/${id}`)
     .then((res)=>{
        if(res.data.findlisting)
        {
@@ -177,7 +177,7 @@ function Update_listing() {
     
 
     axios
-      .post(`http://estate-liard.vercel.app/listining/update/${id}`, formdata)
+      .post(`https://estate-liard.vercel.app/listining/update/${id}`, formdata)
       .then((res) => {
         if (res.data.update) {
           console.log(res.data.listing)

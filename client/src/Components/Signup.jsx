@@ -33,7 +33,7 @@ function Signup() {
       setp_lmsg("password at least 8 characters");
     } else {
       setp_lmsg("");
-      axios.post("http://estate-liard.vercel.app/auth/signup", { username, email, password }, { withCredentials: true })
+      axios.post("https://estate-liard.vercel.app/auth/signup", { username, email, password }, { withCredentials: true })
         .then((res) => {
           if (res.data.register) {
             dispatch(updatecurrentuser(res.data.newuser));

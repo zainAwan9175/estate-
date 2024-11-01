@@ -157,7 +157,7 @@ function Create_lisiting() {
     
 
     axios
-      .post("http://estate-liard.vercel.app/listining/create", formdata)
+      .post("https://estate-liard.vercel.app/listining/create", formdata)
       .then((res) => {
         if (res.data.creation) {
           console.log("helo")

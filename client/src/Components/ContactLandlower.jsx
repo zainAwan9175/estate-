@@ -8,7 +8,7 @@ function ContactLandlower({ listing }) {
 
     useEffect(() => {
         axios
-            .get(`http://estate-liard.vercel.app/auth/get/${listing.userref}`)
+            .get(`https://estate-liard.vercel.app/auth/get/${listing.userref}`)
             .then((res) => {
                 console.log(res.data.listingowner); // Logs the correct data from the response
                 setlistingowner(res.data.listingowner);

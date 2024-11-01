@@ -42,6 +42,10 @@ function Profile() {
       uploadFile(file);
     }
   }, [file]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  
+  }, []);
 
   function uploadFile() {
     const storage = getStorage(app);
@@ -61,7 +65,7 @@ function Profile() {
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           axios
-            .post("http://estate-liard.vercel.app/auth/updatepic", { userid, downloadURL })
+            .post("https://estate-liard.vercel.app/auth/updatepic", { userid, downloadURL })
             .then((res) => {
               dispatch(updatecurrentuser(res.data.updateuser));
               setfile(undefined);
@@ -84,7 +88,7 @@ function Profile() {
     } else {
       setp_lmsg("");
       axios
-        .post("http://estate-liard.vercel.app/auth/updateprofile", {
+        .post("https://estate-liard.vercel.app/auth/updateprofile", {
           username,
           email,
           password,
@@ -107,7 +111,7 @@ function Profile() {
 
   function deleteaccount() {
     axios
-      .post("http://estate-liard.vercel.app/auth/deleteaccount", { userid })
+      .post("https://estate-liard.vercel.app/auth/deleteaccount", { userid })
       .then((res) => {
         if (res.data.delete) {
           dispatch(updatecurrentuser({}));
@@ -126,7 +130,7 @@ function Profile() {
 
   function SignOut() {
     axios
-      .post("http://estate-liard.vercel.app/auth/signout")
+      .post("https://estate-liard.vercel.app/auth/signout")
       .then((res) => {
         if (res.data.signout) {
           dispatch(updatecurrentuser({}));
